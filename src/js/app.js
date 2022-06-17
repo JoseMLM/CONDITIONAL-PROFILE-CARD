@@ -30,13 +30,20 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   // reset the website body with the new html output
+  let name = variables.name;
+  let lastname = variables.lastname;
+  let job = variables.role;
+  let pais = variables.country;
+  let positions = variables.socialMediaPosition;
+
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
+          <h1>${name} ${lastname}</h1>
+          <h2>${job} </h2>
+          <h3>${pais}</h3>
+
+          <ul class="${positions}">
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
             <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
