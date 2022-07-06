@@ -30,10 +30,13 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   // reset the website body with the new html output
-  let name = variables.name;
-  let lastname = variables.lastname;
-  let job = variables.role;
-  let pais = variables.country;
+  let name = variables.name ? variables.name : "Type your name here";
+  let lastname = variables.lastname
+    ? variables.lastname
+    : "Type your lastname here";
+  let job = variables.role ? variables.role : "Type your role here";
+  let city = variables.city ? variables.city : "Type your city here";
+  let pais = variables.country ? variables.country : "Type your country here";
   let positions = variables.socialMediaPosition;
 
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
@@ -41,7 +44,7 @@ function render(variables = {}) {
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${name} ${lastname}</h1>
           <h2>${job} </h2>
-          <h3>${pais}</h3>
+          <h3>${city}, ${pais}</h3>
 
           <ul class="${positions}">
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
